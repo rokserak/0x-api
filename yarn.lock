@@ -1455,9 +1455,9 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kybernetwork/ks-elastic-sc@KyberNetwork/ks-elastic-sc#362d9b6a726bcb286cc47c082c46f6259a5ae82d":
+"@kybernetwork/ks-elastic-sc@git+https://github.com/KyberNetwork/ks-elastic-sc.git":
   version "1.0.0"
-  resolved "https://codeload.github.com/KyberNetwork/ks-elastic-sc/tar.gz/362d9b6a726bcb286cc47c082c46f6259a5ae82d"
+  resolved "git+https://github.com/KyberNetwork/ks-elastic-sc.git#4ab08c0a60f74809f731bdd333076e32d05f1d17"
   dependencies:
     dotenv "8.2.0"
     solhint "3.3.2"

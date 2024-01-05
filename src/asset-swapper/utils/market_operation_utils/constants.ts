@@ -545,7 +545,8 @@ export const BSC_TOKENS = {
 
 export const POLYGON_TOKENS = {
     DAI: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
-    USDC: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
+    USDCE: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
+    USDC: '0x3c499c542cef5e3811e1192ce70d8cc03d5c3359',
     USDT: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
     amDAI: '0x27f8d03b3a2196956ed754badc28d73be8830a6e',
     amUSDC: '0x1a13f4ca1d028320a707d99520abfefca3998b7f',
@@ -813,7 +814,7 @@ export const WOOFI_SUPPORTED_TOKENS = Set.of(
     FANTOM_TOKENS.WETH,
     FANTOM_TOKENS.WBTC,
     FANTOM_TOKENS.WOO,
-    POLYGON_TOKENS.USDC,
+    POLYGON_TOKENS.USDCE,
     POLYGON_TOKENS.WMATIC,
     POLYGON_TOKENS.WBTC,
     POLYGON_TOKENS.WETH,
@@ -859,6 +860,7 @@ export const DEFAULT_INTERMEDIATE_TOKENS_BY_CHAIN_ID: Record<ChainId, string[]> 
     [ChainId.Polygon]: [
         POLYGON_TOKENS.WMATIC,
         POLYGON_TOKENS.WETH,
+        POLYGON_TOKENS.USDCE,
         POLYGON_TOKENS.USDC,
         POLYGON_TOKENS.DAI,
         POLYGON_TOKENS.USDT,
@@ -1117,7 +1119,7 @@ export const IRONSWAP_POLYGON_INFOS: { [name: string]: CurveInfo } = {
         sellQuoteFunctionSelector: CurveFunctionSelectors.calculateSwap,
         buyQuoteFunctionSelector: CurveFunctionSelectors.None,
         poolAddress: IRONSWAP_POOLS.is3usd,
-        tokens: [POLYGON_TOKENS.USDC, POLYGON_TOKENS.USDT, POLYGON_TOKENS.DAI],
+        tokens: [POLYGON_TOKENS.USDCE, POLYGON_TOKENS.USDT, POLYGON_TOKENS.DAI],
         metaTokens: undefined,
         gasSchedule: 150e3,
     },
@@ -1189,7 +1191,7 @@ export const SYNAPSE_POLYGON_INFOS: { [name: string]: CurveInfo } = {
         sellQuoteFunctionSelector: CurveFunctionSelectors.calculateSwap,
         buyQuoteFunctionSelector: CurveFunctionSelectors.None,
         poolAddress: SYNAPSE_POLYGON_POOLS.nUSDLP,
-        tokens: [POLYGON_TOKENS.nUSD, POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDC, POLYGON_TOKENS.USDT],
+        tokens: [POLYGON_TOKENS.nUSD, POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDCE, POLYGON_TOKENS.USDT],
         metaTokens: undefined,
         gasSchedule: 140e3,
     },
@@ -1255,7 +1257,7 @@ export const FIREBIRDONESWAP_POLYGON_INFOS: { [name: string]: CurveInfo } = {
         sellQuoteFunctionSelector: CurveFunctionSelectors.calculateSwap,
         buyQuoteFunctionSelector: CurveFunctionSelectors.None,
         poolAddress: FIREBIRDONESWAP_POLYGON_POOLS.oneswap,
-        tokens: [POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDC, POLYGON_TOKENS.USDT],
+        tokens: [POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDCE, POLYGON_TOKENS.USDT],
         metaTokens: undefined,
         gasSchedule: 100e3,
     },
@@ -1394,7 +1396,7 @@ export const MSTABLE_POOLS_BY_CHAIN_ID = valueByChainId(
         [ChainId.Polygon]: {
             mUSD: {
                 poolAddress: '0xe840b73e5287865eec17d250bfb1536704b43b21',
-                tokens: [POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDC, POLYGON_TOKENS.USDT],
+                tokens: [POLYGON_TOKENS.DAI, POLYGON_TOKENS.USDCE, POLYGON_TOKENS.USDT],
             },
             mBTC: {
                 poolAddress: NULL_ADDRESS,
@@ -2112,7 +2114,7 @@ export const DEFAULT_GAS_SCHEDULE: GasSchedule = {
             BSC_TOKENS.BUSD,
             AVALANCHE_TOKENS.nUSDC,
             FANTOM_TOKENS.USDC,
-            POLYGON_TOKENS.USDC,
+            POLYGON_TOKENS.USDCE,
             ARBITRUM_TOKENS.USDC,
             OPTIMISM_TOKENS.USDC,
         ];

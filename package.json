@@ -125,7 +125,7 @@
         "@ethersproject/hdnode": "^5.2.0",
         "@ethersproject/providers": "^5.7.1",
         "@ethersproject/strings": "^5.0.10",
-        "@kybernetwork/ks-elastic-sc": "KyberNetwork/ks-elastic-sc#362d9b6a726bcb286cc47c082c46f6259a5ae82d",
+        "@kybernetwork/ks-elastic-sc": "git+https://github.com/KyberNetwork/ks-elastic-sc.git",
         "@sentry/node": "^7.14.0",
         "@sentry/tracing": "^7.14.0",
         "aws-sdk": "^2.908.0",
