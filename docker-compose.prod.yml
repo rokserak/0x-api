@@ -1,0 +1,17 @@
+version: "3"
+services:
+  0x_swap:
+    build:
+      dockerfile: Dockerfile
+    ports:
+        - "${HTTP_PORT-3000}:${HTTP_PORT-3000}"
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: sh -c "yarn && yarn build && yarn db:migrate && yarn start:service:swap_http"
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: external-network
