@@ -89,10 +89,12 @@ const CURVE_V2_POOLS = {
 const CURVE_POLYGON_POOLS = {
     aave: '0x445fe580ef8d70ff569ab36e80c647af338db351',
     ren: '0xc2d95eef97ec6c17551d45e77b590dc1f9117c67',
+    sdtusdce: '0x50b20884eaeccb4ee00872fa51c49e196f1f8ab5',
 };
 
 const CURVE_V2_POLYGON_POOLS = {
     atricrypto3: '0x1d8b86e3d88cdb2d34688e87e72f388cb541b7c8',
+    usdcesdt: '0x0bb1dc9cf23a1d677c91832f1aa3338e97b2c1a5',
 };
 
 const CURVE_AVALANCHE_POOLS = {
@@ -228,6 +230,16 @@ const createCurveV2MetaTriPool = (info: { tokens: string[]; pool: string; gasSch
 const createCurveFactoryCryptoExchangePool = (info: { tokens: string[]; pool: string; gasSchedule: number }) => ({
     exchangeFunctionSelector: CurveFunctionSelectors.exchange_underlying_uint256,
     sellQuoteFunctionSelector: CurveFunctionSelectors.get_dy_uint256,
+    buyQuoteFunctionSelector: CurveFunctionSelectors.None,
+    tokens: info.tokens,
+    metaTokens: undefined,
+    poolAddress: info.pool,
+    gasSchedule: info.gasSchedule,
+});
+
+const createCurveExchangeUnderlyingUint256Pool = (info: { tokens: string[]; pool: string; gasSchedule: number }) => ({
+    exchangeFunctionSelector: CurveFunctionSelectors.exchange_underlying_uint256,
+    sellQuoteFunctionSelector: CurveFunctionSelectors.get_dy_v2,
     buyQuoteFunctionSelector: CurveFunctionSelectors.None,
     tokens: info.tokens,
     metaTokens: undefined,
@@ -568,12 +580,22 @@ export const CURVE_POLYGON_INFOS: { [name: string]: CurveInfo } = {
         pool: CURVE_POLYGON_POOLS.ren,
         gasSchedule: 350e3,
     }),
+    [CURVE_POLYGON_POOLS.sdtusdce]: createCurveExchangePool({
+        tokens: [POLYGON_TOKENS.SDT, POLYGON_TOKENS.USDCE],
+        pool: CURVE_POLYGON_POOLS.sdtusdce,
+        gasSchedule: 150e3,
+    }),
 };
 
 export const CURVE_V2_POLYGON_INFOS: { [name: string]: CurveInfo } = {
     [CURVE_V2_POLYGON_POOLS.atricrypto3]: createCurveV2MetaTriPool({
         tokens: [POLYGON_TOKENS.WBTC, POLYGON_TOKENS.WETH],
         pool: CURVE_V2_POLYGON_POOLS.atricrypto3,
+        gasSchedule: 300e3,
+    }),
+    [CURVE_V2_POLYGON_POOLS.usdcesdt]: createCurveExchangeUnderlyingUint256Pool({
+        tokens: [POLYGON_TOKENS.USDCE, POLYGON_TOKENS.SDT],
+        pool: CURVE_V2_POLYGON_POOLS.usdcesdt,
         gasSchedule: 300e3,
     }),
 };

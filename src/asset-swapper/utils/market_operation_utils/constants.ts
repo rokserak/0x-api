@@ -562,6 +562,7 @@ export const POLYGON_TOKENS = {
     nUSD: '0xb6c473756050de474286bed418b77aeac39b02af',
     ANY: '0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8',
     WOO: '0x1b815d120b3ef02039ee11dc2d33de7aa4a8c603',
+    SDT: '0x2bd034355fe2a5e5f8ba949fa26aa228fba6ba6a',
 };
 
 export const AVALANCHE_TOKENS = {
